@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903215212) do
+ActiveRecord::Schema.define(version: 20170903232145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "game_time"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
+    t.string   "location"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
