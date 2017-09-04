@@ -23,4 +23,20 @@ RSpec.describe Team, type: :model do
       expect(team.fullname).to eq(team.name + " " + team.mascot)
     end
   end
+
+  describe 'relationships' do
+    it 'belongs to a sub_sport' do
+      team = build(:team)
+
+      expect(team.sub_sport).to_not eq(nil)
+    end
+
+    it 'has many fans through favorite teams' do
+      team = create(:team)
+      team.fans.create(email: "test@test.test", password: "password")
+      team.fans.create(email: "test1@test.test", password: "password")
+
+      expect(team.fans.length).to eq(2)
+    end
+  end
 end
