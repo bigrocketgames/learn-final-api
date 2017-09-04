@@ -18,4 +18,14 @@ RSpec.describe Sport, type: :model do
       ])
     end
   end
+
+  describe 'relationships' do
+    it 'has many sub sports' do
+      sport = create(:sport)
+      sport.sub_sports.create(name: "NFL", conference_split: true)
+      sport.sub_sports.create(name: "NCAAF", conference_split: true)
+
+      expect(sport.sub_sports.length).to eq(2)
+    end
+  end
 end
