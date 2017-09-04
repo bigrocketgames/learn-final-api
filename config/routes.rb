@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
       # /api/v1/sports
       resources :sports, only: [:create, :show, :update, :destroy]
+
+      # /api/v1/sub_sports
+      resources :sub_sports, only: [:create, :show, :update, :destroy]
     end
   end
 end
