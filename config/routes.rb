@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       # /api/v1/auth
       post '/auth', to: "auth#login"
       post '/auth/refresh', to: "auth#refresh"
+
+      # /api/v1/sports
+      resources :sports, only: [:create, :show, :update, :destroy]
     end
   end
 end
