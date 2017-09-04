@@ -16,4 +16,20 @@ RSpec.describe SubSport, type: :model do
       ])
     end
   end
+
+  describe 'relationships' do
+    it 'belongs to a sport' do
+      subSport = create(:sub_sport)
+
+      expect(subSport.sport.id).to_not eq(nil)
+    end
+
+    it 'has many teams' do
+      subSport = create(:sub_sport)
+      team1 = create(:home_team, sub_sport_id: subSport.id)
+      team2 = create(:away_team, sub_sport_id: subSport.id)
+
+      expect(subSport.teams.length).to eq(2)
+    end
+  end
 end
