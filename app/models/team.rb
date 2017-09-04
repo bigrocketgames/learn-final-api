@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   belongs_to :sub_sport
   has_many :user_teams
-  has_many :fans, through: :user_teams, source: :user
+  has_many :fans, through: :user_teams, source: :fan
 
   after_create :add_fullname
   validates :name, :mascot, :stadium_location, :sub_sport_id, presence: true
