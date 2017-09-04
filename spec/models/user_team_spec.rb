@@ -8,7 +8,7 @@ RSpec.describe UserTeam, type: :model do
       expect(user_team.valid?).to eq(false)
       expect(user_team.errors.full_messages).to eq([
         "Fan must exist", 
-        "User must exist", 
+        "Team must exist", 
         "Fan can't be blank", 
         "Team can't be blank"
       ])
