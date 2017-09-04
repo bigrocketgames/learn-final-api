@@ -33,4 +33,24 @@ RSpec.describe Game, type: :model do
       expect(@game3.valid?).to eq(false)
     end
   end
+
+  describe 'relationships' do
+    it 'belongs to home team' do
+      expect(@game.home_team.id).to_not eq(nil)
+    end
+
+    it 'belongs to away team' do
+      expect(@game.away_team.id).to_not eq(nil)
+    end
+  end
+
+  context 'after create' do
+    it 'adds the default location to the game' do
+      expect(@game.location).to eq(@game.home_team.stadium_location)
+    end
+
+    it 'does not add default location to the game if another one is already specified' do
+      expect(@game2.location).to eq("Seattle, WA")
+    end
+  end
 end
