@@ -15,7 +15,7 @@ class Api::V1::SubSportsController < ApplicationController
     else
       render json: {
         errors: ["You are not authorized to create new items."]
-      }
+      }, status: 403
     end
   end
 
