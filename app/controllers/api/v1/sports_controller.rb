@@ -3,19 +3,25 @@ class Api::V1::SportsController < ApplicationController
   before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def create
-    @sport = Sport.new(sport_params)
+    if @user.admin
+      @sport = Sport.new(sport_params)
 
-    if @sport.save
-      render json: @sport
+      if @sport.save
+        render json: @sport
+      else
+        render json: {
+          errors: @sport.errors
+        }, status: 400
+      end
     else
       render json: {
-        errors: @sport.errors
-      }, status: 400
+        errors: ["You are not authorized to create new items."]
+      }, status: 403
     end
   end
 
   def show
-    render json: @sport
+    render json: Sport.include(:sub_sports).find_by(id: params[:id])
   end
 
   def update
