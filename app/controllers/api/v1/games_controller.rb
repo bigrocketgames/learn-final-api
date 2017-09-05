@@ -46,7 +46,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
       render json: { Status: "Game successfully destroyed!" }
     else
       render json: {
-        errors: {"You are not authorized to delete items."}
+        errors: ["You are not authorized to delete items."]
       }, status: 403
     end
   end
