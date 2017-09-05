@@ -32,6 +32,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
         render json: {
           errors: @team.errors
         }, status: 400
+      end
     else
       render json: {
         errors: ["You are not authorized to modify items."]
