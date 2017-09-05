@@ -48,6 +48,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
         errors: ["You are not authorized to delete items."]
       }, status: 403
     end
+  end
 
 
 private
