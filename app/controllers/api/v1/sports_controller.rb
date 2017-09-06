@@ -21,8 +21,7 @@ class Api::V1::SportsController < ApplicationController
   end
 
   def show
-    sport = Sport.includes(:sub_sports).find_by(sport_id: params[:id])
-    render json: sport
+    render json: @sport
   end
 
   def update
