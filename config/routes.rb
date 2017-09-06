@@ -15,7 +15,9 @@ Rails.application.routes.draw do
       resources :sub_sports, only: [:create, :show, :update, :destroy]
 
       # /api/v1/teams
-      resources :teams, only: [:create, :show, :update, :destroy]
+      resources :teams, only: [:create, :show, :update, :destroy] do
+        get '/schedule', to: "teams#schedule"
+      end
 
       # /api/v1/games
       resources :games, only: [:create, :show, :update, :destroy]
