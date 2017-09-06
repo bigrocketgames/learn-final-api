@@ -51,6 +51,11 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
     end
   end
 
+  def schedule
+    @team = Team.find_by(id: params[:team_id])
+    render json: @team.get_games
+  end
+
 
 private
 
