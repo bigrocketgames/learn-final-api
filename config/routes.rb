@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
       # /api/v1/games
       resources :games, only: [:create, :show, :update, :destroy]
+
+      # /api/v1/user_teams
+      resources :user_teams, only: [:create, :destroy]
     end
   end
 end
