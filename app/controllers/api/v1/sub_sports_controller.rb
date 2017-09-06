@@ -53,7 +53,7 @@ class Api::V1::SubSportsController < ApplicationController
   private
 
   def get_subsport
-    @sub_sport = Sport.find_by(id: params[:id])
+    @sub_sport = SubSport.find_by(id: params[:id])
   end
 
   def subsport_params
