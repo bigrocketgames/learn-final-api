@@ -27,7 +27,13 @@ class Api::V1::UsersController < ApplicationController
   def upgrade
     if @user.admin
       @user = User.find_by(id: params[:id])
-      @user.upgrade
+      if @user.upgrade(admin: true)
+        render json: @user
+      else
+        render json: {
+          errors: @user.errors
+        }, status: 400
+      end
     else
       render json: {
         errors: ["You are not authorized to upgrade this user."]
