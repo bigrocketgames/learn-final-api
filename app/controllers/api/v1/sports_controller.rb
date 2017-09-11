@@ -4,7 +4,7 @@ class Api::V1::SportsController < ApplicationController
 
   def index
     @sports = Sport.all
-    render json: {:sports => @sports}
+    render json: @sports
   end
 
   def create
@@ -12,7 +12,7 @@ class Api::V1::SportsController < ApplicationController
       @sport = Sport.new(sport_params)
 
       if @sport.save
-        render json: {:sport => @sport}
+        render json: @sport
       else
         render json: {
           errors: @sport.errors
@@ -26,13 +26,13 @@ class Api::V1::SportsController < ApplicationController
   end
 
   def show
-    render json: {:sport => @sport}
+    render json: @sport
   end
 
   def update
     if @user.admin 
       if @sport.update(sport_params)
-        render json: {:sport => @sport}
+        render json: @sport
       else
         render json: {
           errors: @sport.errors
