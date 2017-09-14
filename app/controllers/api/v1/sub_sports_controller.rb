@@ -1,6 +1,12 @@
 class Api::V1::SubSportsController < ApplicationController
   before_action :get_subsport, only: [:show, :update, :destroy]
   before_action :authenticate_token!, only: [:create, :update, :destroy]
+
+  def index
+    @sub_sports = SubSport.all
+    render json: @sub_sports
+  end
+
   def create
     if @user.admin = true
       @sub_sport = SubSport.new(subsport_params)
