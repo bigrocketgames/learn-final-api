@@ -2,6 +2,12 @@ class Api::V1::TeamsController < ApplicationController
 before_action :get_team, only: [:show, :update, :destroy]
 before_action :authenticate_token!, only: [:create, :update, :destroy]
 
+  def index
+    @teams = Team.all
+
+    render 'teams/show.json.jbuilder', team: @teams
+  end
+
   def create
     @team = Team.new(team_params)
 
