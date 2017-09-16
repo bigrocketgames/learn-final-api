@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     if @user.admin
-      @users = User.all
+      @users = User.order(:id)
       render json: @users
     else
       render json: {
