@@ -4,7 +4,7 @@ class Api::V1::SportsController < ApplicationController
 
   def index
     @sports = Sport.all
-    render json: @sports
+    render 'sports/index.json.jbuilder', sport: @sports
   end
 
   def create
