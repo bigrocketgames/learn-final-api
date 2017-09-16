@@ -9,7 +9,7 @@ class Game < ApplicationRecord
   private
 
   def no_duplicate
-    gameExists = Game.where('home_team_id = ? AND away_team_id = ? AND game_time = ?', self.home_team_id, self.away_team_id, self.game_time).count
+    gameExists = Game.where('home_team_id = ? AND away_team_id = ? AND game_time = ?, location = ?', self.home_team_id, self.away_team_id, self.game_time, self.location).count
     
     if gameExists > 0
       errors.add(:id, "Can't create duplicate games.")
