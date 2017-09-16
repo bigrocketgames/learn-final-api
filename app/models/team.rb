@@ -16,7 +16,7 @@ class Team < ApplicationRecord
   private
 
   def no_duplicate_team
-    teamExists = Team.where('name = ? AND mascot = ? AND sub_sport_id = ?', self.name, self.mascot, self.sub_sport).count
+    teamExists = Team.where('name = ? AND mascot = ? AND sub_sport_id = ? AND fullname = ? AND stadium_location = ?', self.name, self.mascot, self.sub_sport, self.fullname, self.stadium_location).count
     if teamExists > 0
       errors.add(:name, "can't have a duplicate team")
     end
