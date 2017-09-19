@@ -10,7 +10,7 @@ class Team < ApplicationRecord
   validate :no_duplicate_team
 
   def get_games
-    team_games = Game.where('home_team_id = ? OR away_team_id = ?', self.id, self.id)
+    team_games = Game.where('home_team_id = ? OR away_team_id = ?', self.id, self.id).order(:game_time)
   end
 
   private
