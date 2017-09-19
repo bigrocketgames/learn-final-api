@@ -4,7 +4,7 @@ class Api::V1::SubSportsController < ApplicationController
 
   def index
     @sub_sports = SubSport.all
-    render 'sub_sports/show.json.jbuilder', subSport: @sub_sports
+    render 'sub_sports/index.json.jbuilder', subSport: @sub_sports
   end
 
   def create
@@ -26,7 +26,7 @@ class Api::V1::SubSportsController < ApplicationController
   end
 
   def show
-    render json: @sub_sport
+    render 'sub_sports/show.json.jbuilder', sub_sport: @sub_sport
   end
 
   def update
