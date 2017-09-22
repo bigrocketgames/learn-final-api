@@ -1,32 +1,31 @@
 class Api::V1::UserTeamsController < ApplicationController
-before_action :authenticate_token!, only: [:create, :destroy]
+  before_action :authenticate_token!
+  
+  def index
+    render '/user_teams/index.json.jbuilder', user: @user
+  end
 
   def create
-    if @user.admin
-      @userTeam = UserTeam.new(user_team_params)
+      userTeam = UserTeam.new(user_team_params)
 
-      if @userTeam.save
-        render json: @userTeam
+      if userTeam.save
+        render '/user_teams/index.json.jbuilder', user: @user
       else
         render json: {
-          errors: @userTeam.errors
+          errors: userTeam.errors
         }, status: 400
       end
-    else
-      render json: {
-        errors: ["You are not authorized to create new items."]
-      }, status: 403
-    end
   end
 
   def destroy
-    if @user.admin
-      @user_team = UserTeam.find_by(id: params[:id])
-      @user_team.destroy
-      render json: { Status: "User Team successfully destroyed!" }
+    user_team = UserTeam.find_by(id: params[:id])
+
+    if (user_team.user.id == @user.id)
+      user_team.destroy
+      render '/user_teams/index.json.jbuilder', user: @user
     else
       render json: {
-        errors: ["You are not authorized to delete items."]
+        errors: ["You can not remove a favorite that isn't yours."]
       }, status: 403
     end
   end
