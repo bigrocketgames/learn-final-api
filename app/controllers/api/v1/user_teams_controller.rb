@@ -2,14 +2,16 @@ class Api::V1::UserTeamsController < ApplicationController
   before_action :authenticate_token!
   
   def index
-    render '/user_teams/index.json.jbuilder', user: @user
+    @userTeams = @user.user_teams
+    render '/user_teams/index.json.jbuilder', userTeams: @userTeams
   end
 
   def create
       userTeam = UserTeam.new(user_team_params)
 
       if userTeam.save
-        render '/user_teams/index.json.jbuilder', user: @user
+        @userTeams = @user.user_teams
+        render '/user_teams/index.json.jbuilder', userTeams: @userTeams
       else
         render json: {
           errors: userTeam.errors
@@ -22,7 +24,8 @@ class Api::V1::UserTeamsController < ApplicationController
 
     if (user_team.user.id == @user.id)
       user_team.destroy
-      render '/user_teams/index.json.jbuilder', user: @user
+      @userTeams = @user.user_teams
+      render '/user_teams/index.json.jbuilder', userTeams: @userTeams
     else
       render json: {
         errors: ["You can not remove a favorite that isn't yours."]

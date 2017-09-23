@@ -1,3 +1,3 @@
-json.(@user, :id)
-
-json.favorite_teams @user.favorite_teams, :id, :fullname
+json.array! @userTeams do |userTeam|
+  json.(userTeam, :id, :user_id, :team_id)
+end
