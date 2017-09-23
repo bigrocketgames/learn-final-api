@@ -20,7 +20,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 
-gem 'dotenv-rails'
 # Use JWT for token authentication
 gem 'jwt'
 
