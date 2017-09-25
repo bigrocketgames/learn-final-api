@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_token!, only: [:index]
+  before_action :authenticate_token!, only: [:index, :upgrade]
 
   def index
     if @user.admin
@@ -26,12 +26,13 @@ class Api::V1::UsersController < ApplicationController
 
   def upgrade
     if @user.admin
-      @user = User.find_by(id: params[:id])
+      upgradeUser = User.find_by(id: params[:id])
       if @user.upgrade(admin: true)
-        render json: @user
+        @users - User.all
+        render json: @users
       else
         render json: {
-          errors: @user.errors
+          errors: user.errors
         }, status: 400
       end
     else
@@ -39,6 +40,22 @@ class Api::V1::UsersController < ApplicationController
         errors: ["You are not authorized to upgrade this user."]
       }, status: 403
     end
+  end
+
+  def destroy
+    if @user.admin
+      user = User.find_by(id: params[:id])
+      if user.destroy
+        @users = User.all
+        render json: @users
+      else render json: {
+        errors: user.errors
+      }, status: 400
+      end
+    else
+      render json: {
+        errors: ["You are not authorized to delete users."]
+        }, status: 403
   end
 
   private
