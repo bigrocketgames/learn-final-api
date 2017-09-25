@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # /api/v1/users
-      resources :users, only: [:index, :create]
+      resources :users, only: [:index, :create, :destroy]
 
       # /api/v1/users/upgrade
       post '/users/:id/upgrade', to: "users#upgrade"
