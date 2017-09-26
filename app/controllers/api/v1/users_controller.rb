@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_token!, only: [:index, :upgrade]
+  before_action :authenticate_token!, only: [:index, :upgrade, :downgrade]
 
   def index
     if @user.admin
@@ -26,9 +26,29 @@ class Api::V1::UsersController < ApplicationController
 
   def upgrade
     if @user.admin
-      upgradeUser = User.find_by(id: params[:id])
-      if @user.upgrade(admin: true)
-        @users - User.all
+      user = User.find_by(id: params[:id])
+      user.admin = true
+      if user.save
+        @users = User.all
+        render json: @users
+      else
+        render json: {
+          errors: user.errors
+        }, status: 400
+      end
+    else
+      render json: {
+        errors: ["You are not authorized to upgrade this user."]
+      }, status: 403
+    end
+  end
+
+  def downgrade
+    if @user.admin
+      user = User.find_by(id: params[:id])
+      user.admin = false
+      if user.save
+        @users = User.all
         render json: @users
       else
         render json: {
