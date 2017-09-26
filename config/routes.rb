@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
       # /api/v1/users/upgrade
       post '/users/:id/upgrade', to: "users#upgrade"
+      # /api/v1/users/downgrade
+      post '/users/:id/downgrade', to: "users#downgrade"
 
       # /api/v1/auth
       post '/auth', to: "auth#login"
