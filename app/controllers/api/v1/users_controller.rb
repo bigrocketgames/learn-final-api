@@ -56,6 +56,7 @@ class Api::V1::UsersController < ApplicationController
       render json: {
         errors: ["You are not authorized to delete users."]
         }, status: 403
+    end
   end
 
   private
