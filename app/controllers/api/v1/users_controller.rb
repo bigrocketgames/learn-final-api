@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_token!, only: [:index, :upgrade, :downgrade]
+  before_action :authenticate_token!, only: [:index, :upgrade, :downgrade, :destroy]
 
   def index
     if @user.admin
