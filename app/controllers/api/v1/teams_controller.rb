@@ -32,7 +32,8 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def update
     if @user.admin
       if @team.update(team_params)
-        render json: @team
+        @teams = Team.all
+        render 'teams/show.json.jbuilder', team: @teams
       else
         render json: {
           errors: @team.errors
@@ -48,7 +49,8 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def destroy
     if @user.admin
       @team.destroy
-      render json: { Status: "Team successfully destroyed!" }
+      @teams = Team.all
+      render 'teams/show.json.jbuilder', team: @teams
     else
       render json: {
         errors: ["You are not authorized to delete items."]
