@@ -4,16 +4,15 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
     @teams = Team.all
-
     render 'teams/show.json.jbuilder', team: @teams
   end
 
   def create
     @team = Team.new(team_params)
-
     if @user.admin
       if @team.save
-        render json: @team
+        @teams = Team.all
+        render 'teams/show.json.jbuilder', team: @teams
       else
         render json: {
           errors: @team.errors
@@ -71,7 +70,7 @@ private
   end
 
   def team_params
-    params.require(:team).permit(:name, :mascot, :stadium_location, :sub_sports_id)
+    params.require(:team).permit(:name, :mascot, :stadium_location, :sub_sport_id)
   end
 
 end
