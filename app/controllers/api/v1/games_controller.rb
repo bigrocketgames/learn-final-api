@@ -2,6 +2,11 @@ class Api::V1::GamesController < ApplicationController
 before_action :get_game, only: [:show, :update, :destroy]
 before_action :authenticate_token!, only: [:create, :update, :destroy]
 
+  def index
+    @games = Game.order(:id)
+    render json: @games
+  end
+
   def create
     if @user.admin
       @game = Game.new(game_params)
