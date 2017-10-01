@@ -3,7 +3,7 @@ before_action :get_game, only: [:show, :update, :destroy]
 before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
-    @games = Game.order(:id)
+    @games = Game.all
     render '/games/index.json.jbuilder', games: @games
   end
 
@@ -12,7 +12,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
       @game = Game.new(game_params)
 
       if @game.save
-        @games = Game.order(:id)
+        @games = Game.all
         render '/games/index.json.jbuilder', games: @games
       else
         render json: {
@@ -33,7 +33,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def update
     if @user.admin
       if @game.update(game_params)
-        @games = Game.order(:id)
+        @games = Game.all
         render '/games/index.json.jbuilder', games: @games
       else
         render json: {
@@ -50,7 +50,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def destroy
     if @user.admin
       @game.destroy
-      @games = Game.order(:id)
+      @games = Game.all
       render '/games/index.json.jbuilder', games: @games
     else
       render json: {
@@ -67,7 +67,7 @@ private
   end
 
   def game_params
-    params.require(:game).permit(:game_time, :home_team_id, :away_team_id)
+    params.require(:game).permit(:game_time, :home_team_id, :away_team_id, :location)
   end
 
 end
