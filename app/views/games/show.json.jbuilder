@@ -1,0 +1,1 @@
+json.(@game, :game_time, :away_team_id, :home_team_id, :location)

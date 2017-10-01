@@ -4,7 +4,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
     @games = Game.order(:id)
-    render json: @games
+    render '/games/index.json.jbuilder', games: @games
   end
 
   def create
@@ -12,7 +12,8 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
       @game = Game.new(game_params)
 
       if @game.save
-        render json: @game
+        @games = Game.order(:id)
+        render '/games/index.json.jbuilder', games: @games
       else
         render json: {
           errors: @game.errors
@@ -26,13 +27,14 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   end
 
   def show
-    render json: @game
+    render '/games/show.json.jbuilder', games: @game
   end
 
   def update
     if @user.admin
       if @game.update(game_params)
-        render json: @game
+        @games = Game.order(:id)
+        render '/games/index.json.jbuilder', games: @games
       else
         render json: {
           errors: @game.errors
@@ -48,7 +50,8 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def destroy
     if @user.admin
       @game.destroy
-      render json: { Status: "Game successfully destroyed!" }
+      @games = Game.order(:id)
+      render '/games/index.json.jbuilder', games: @games
     else
       render json: {
         errors: ["You are not authorized to delete items."]
