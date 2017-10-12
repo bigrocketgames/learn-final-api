@@ -12,8 +12,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
       @game = Game.new(game_params)
 
       if @game.save
-        @games = Game.all
-        render '/games/index.json.jbuilder', games: @games
+        render '/show/index.json.jbuilder', game: @game
       else
         render json: {
           errors: @game.errors
