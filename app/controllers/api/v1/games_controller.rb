@@ -49,8 +49,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def destroy
     if @user.admin
       @game.destroy
-      @games = Game.all
-      render '/games/index.json.jbuilder', games: @games
+      render '/games/show.json.jbuilder', game: @game
     else
       render json: {
         errors: ["You are not authorized to delete items."]
