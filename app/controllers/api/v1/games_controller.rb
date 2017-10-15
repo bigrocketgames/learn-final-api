@@ -32,8 +32,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def update
     if @user.admin
       if @game.update(game_params)
-        @games = Game.all
-        render '/games/index.json.jbuilder', games: @games
+        render '/games/show.json.jbuilder', games: @game
       else
         render json: {
           errors: @game.errors
