@@ -12,8 +12,7 @@ class Api::V1::SportsController < ApplicationController
       @sport = Sport.new(sport_params)
 
       if @sport.save
-        @sports = Sport.all
-        render 'sports/index.json.jbuilder', sport: @sports
+        render 'sports/show.json.jbuilder', sport: @sport
       else
         render json: {
           errors: @sport.errors
@@ -49,8 +48,7 @@ class Api::V1::SportsController < ApplicationController
   def destroy
     if @user.admin
       @sport.destroy
-      @sports = Sport.all
-      render 'sports/index.json.jbuilder', sport: @sports
+      render 'sports/show.json.jbuilder', sport: @sport
     else
       render json: {
         errors: ["You are not authorized to delete items."]

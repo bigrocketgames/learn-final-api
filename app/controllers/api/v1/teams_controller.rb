@@ -4,15 +4,14 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
     @teams = Team.all
-    render 'teams/show.json.jbuilder', team: @teams
+    render 'teams/index.json.jbuilder', team: @teams
   end
 
   def create
     @team = Team.new(team_params)
     if @user.admin
       if @team.save
-        @teams = Team.all
-        render 'teams/show.json.jbuilder', team: @teams
+        render 'teams/show.json.jbuilder', team: @team
       else
         render json: {
           errors: @team.errors
@@ -32,8 +31,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def update
     if @user.admin
       if @team.update(team_params)
-        @teams = Team.all
-        render 'teams/show.json.jbuilder', team: @teams
+        render 'teams/show.json.jbuilder', team: @team
       else
         render json: {
           errors: @team.errors
@@ -49,8 +47,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   def destroy
     if @user.admin
       @team.destroy
-      @teams = Team.all
-      render 'teams/show.json.jbuilder', team: @teams
+      render 'teams/show.json.jbuilder', team: @team
     else
       render json: {
         errors: ["You are not authorized to delete items."]
