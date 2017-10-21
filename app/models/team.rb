@@ -13,10 +13,15 @@ class Team < ApplicationRecord
     team_games = Game.where('home_team_id = ? OR away_team_id = ?', self.id, self.id).order(:game_time)
   end
 
+  def add_like
+    self.likes += 1
+    self.save
+  end
+
   private
 
   def no_duplicate_team
-    teamExists = Team.where('name = ? AND mascot = ? AND sub_sport_id = ? AND fullname = ? AND stadium_location = ?', self.name, self.mascot, self.sub_sport, self.fullname, self.stadium_location).count
+    teamExists = Team.where('name = ? AND mascot = ? AND sub_sport_id = ? AND fullname = ? AND stadium_location = ? AND likes = ?', self.name, self.mascot, self.sub_sport, self.fullname, self.stadium_location, self.likes).count
     if teamExists > 0
       errors.add(:name, "can't have a duplicate team")
     end
