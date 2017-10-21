@@ -28,7 +28,9 @@ Rails.application.routes.draw do
       resources :games, only: [:index, :create, :show, :update, :destroy]
 
       # /api/v1/user_teams
-      resources :user_teams, only: [:index, :create, :destroy]
+      resources :user_teams, only: [:index, :create, :destroy] do
+        post '/like', to: "user_teams#like"
+      end
     end
   end
 end

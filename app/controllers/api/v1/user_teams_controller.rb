@@ -1,5 +1,5 @@
 class Api::V1::UserTeamsController < ApplicationController
-  before_action :authenticate_token!
+  before_action :authenticate_token!, only: [:index, :create, :destroy]
   
   def index
     @userTeams = @user.user_teams
@@ -17,6 +17,12 @@ class Api::V1::UserTeamsController < ApplicationController
           errors: userTeam.errors
         }, status: 400
       end
+  end
+
+  def like
+    @userTeam = UserTeam.find_by(id: params[:user_team_id])
+    @userTeam.team.add_like
+    render 'user_teams/show.json.jbuilder', userTeam: @userTeam
   end
 
   def destroy
