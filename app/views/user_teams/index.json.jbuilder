@@ -1,5 +1,5 @@
 json.array! @userTeams do |userTeam|
   json.(userTeam, :id, :user_id)
 
-  json.team userTeam.team, :id, :fullname, :likes
+  json.team userTeam.team, :id, :fullname, :fans
 end
