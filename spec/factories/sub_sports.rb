@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :sub_sport do
     name "NFL"
     conference_split true
