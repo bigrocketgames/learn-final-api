@@ -43,7 +43,7 @@ RSpec.describe "Api::V1::Teams", Type: :request do
       get "/api/v1/teams/#{@team1.id}/schedule"
       body = JSON.parse(response.body)
 
-      expect(body['games'].count).to eq(2)
+      expect(body.count).to eq(2)
     end
   end
 

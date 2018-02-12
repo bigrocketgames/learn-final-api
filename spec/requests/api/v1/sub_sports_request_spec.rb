@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Sports", Type: :request do
+RSpec.describe "Api::V1::SubSports", Type: :request do
 
   before(:each) do
     @user = User.create(
@@ -50,7 +50,7 @@ RSpec.describe "Api::V1::Sports", Type: :request do
 
         expect(response.status).to eq(200)
         expect(body['name']).to eq("NFL")
-        expect(body['sport_id']).not_to eq(nil)
+        expect(body['sport']['name']).to eq("football")
         expect(body['conference_split']).to eq(true)
       end
 
