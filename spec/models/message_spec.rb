@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Message, type: :model do
   describe 'validations' do
-    pending 'it requires content, user_id, and chat_room_id'
+    it 'requires content, user_id, and chat_room_id' do
+      # user = create(:user)
+      # chatRoom = create(:chat_room)
+
+      @message = create(:message)
+      expect(@message.valid?).to eq(true)
+    end
   end
 
   describe 'relationships' do
