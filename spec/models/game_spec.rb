@@ -52,5 +52,7 @@ RSpec.describe Game, type: :model do
     it 'does not add default location to the game if another one is already specified' do
       expect(@game2.location).to eq("Seattle, WA")
     end
+
+    pending 'creates chat room for the game'
   end
 end
