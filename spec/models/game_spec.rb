@@ -53,6 +53,8 @@ RSpec.describe Game, type: :model do
       expect(@game2.location).to eq("Seattle, WA")
     end
 
-    pending 'creates chat room for the game'
+    it 'creates chat room for the game' do
+      expect(@game.chat_room).not_to eq(nil)
+    end
   end
 end
