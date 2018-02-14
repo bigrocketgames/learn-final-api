@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :messages
-  has_many :user_teams
+  has_many :messages, dependent: :destroy
+  has_many :user_teams, dependent: :destroy
   has_many :favorite_teams, through: :user_teams, source: :team
 
   before_save :downcase_email
