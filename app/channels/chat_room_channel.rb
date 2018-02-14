@@ -3,4 +3,8 @@ class ChatRoomChannel < ApplicationCable::Channel
     chatRoom = ChatRoom.find(params[:chatRoom_id])
     stream_for chatRoom
   end
+
+  def unscubscribed
+
+  end
 end
