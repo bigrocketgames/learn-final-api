@@ -5,6 +5,5 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def unscubscribed
-
   end
 end
