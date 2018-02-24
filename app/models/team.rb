@@ -1,9 +1,9 @@
 class Team < ApplicationRecord
   belongs_to :sub_sport
-  has_many :user_teams
+  has_many :user_teams, dependent: :destroy
   has_many :fans, through: :user_teams, source: :user
-  has_many :home_games, class_name: "Game", foreign_key: "home_team_id"
-  has_many :away_games, class_name: "Game", foreign_key: "away_team_id"
+  has_many :home_games, class_name: "Game", foreign_key: "home_team_id", dependent: :destroy
+  has_many :away_games, class_name: "Game", foreign_key: "away_team_id", dependent: :destroy
 
   after_create :add_fullname
   validates :name, :mascot, :stadium_location, :sub_sport_id, presence: true
