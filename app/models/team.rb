@@ -13,6 +13,10 @@ class Team < ApplicationRecord
     team_games = Game.where('home_team_id = ? OR away_team_id = ?', self.id, self.id).order(:game_time)
   end
 
+  def fan_count
+    self.fans.count
+  end
+
   private
 
   def no_duplicate_team
