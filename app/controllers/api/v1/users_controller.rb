@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
   def index
     if @user.admin
       @users = User.order(:id)
-      render json: @users
+      render 'users/index.json.jbuilder', users: @users
     else
       render json: {
         errors: ["You are not authorized to view this content."]
@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
       user.admin = true
       if user.save
         @users = User.all
-        render json: @users
+        render 'users/index.json.jbuilder', users: @users
       else
         render json: {
           errors: user.errors
@@ -49,7 +49,7 @@ class Api::V1::UsersController < ApplicationController
       user.admin = false
       if user.save
         @users = User.all
-        render json: @users
+        render 'users/index.json.jbuilder', users: @users
       else
         render json: {
           errors: user.errors
@@ -67,7 +67,7 @@ class Api::V1::UsersController < ApplicationController
       user = User.find_by(id: params[:id])
       if user.destroy
         @users = User.all
-        render json: @users
+        render 'users/index.json.jbuilder', users: @users
       else render json: {
         errors: user.errors
       }, status: 400
