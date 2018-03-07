@@ -35,6 +35,15 @@ Rails.application.routes.draw do
       resources :user_teams, only: [:index, :create, :destroy] do
         post '/like', to: "user_teams#like"
       end
+
+      # /api/v1/chat_rooms
+      resources :chat_rooms, only: [:show, :create, :destroy] do
+        # /api/v1/chat_rooms/#/messages
+        resources :messages, only: [:index, :create, :show, :destroy]
+      end
+
     end
   end
+
+  
 end
