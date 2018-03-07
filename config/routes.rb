@@ -37,13 +37,13 @@ Rails.application.routes.draw do
       end
 
       # /api/v1/chat_rooms
-      resources :chat_rooms, only: [:show, :create, :destroy] do
+      resources :chat_rooms, only: [:show] do
         # /api/v1/chat_rooms/#/messages
-        resources :messages, only: [:index, :create, :show, :destroy]
+        resources :messages, only: [:create, :destroy]
       end
 
     end
   end
 
-  
+
 end
