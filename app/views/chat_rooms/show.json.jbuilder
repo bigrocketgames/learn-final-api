@@ -5,7 +5,9 @@ end
 
 json.messages do
   json.array! @chatRoom.messages do |message|
+    json.id message.id
     json.content message.content
-    json.userEmail message.user.email
+    json.user message.user.email
+    json.createdAt message.created_at
   end
 end
