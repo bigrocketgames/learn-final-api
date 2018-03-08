@@ -1,10 +1,12 @@
 class API::V1::MessagesController < ApplicationController
 
   def create
-    @message = Message.new(message_params)
+    message = Message.new(message_params)
+    chatRoom = ChatRoom.find(message_params[:chat_room_id])
 
-    if @message.save
-      build_message(@message)
+    if message.save
+      @message = build_message(message)
+      ChatRoomChannel.broadcast_to chatRoom, @message
     end
   end
 
