@@ -1,4 +1,5 @@
 json.chatRoom do
+  json.id @chatRoom.id
   json.roomName @chatRoom.roomName
   json.game_id @chatRoom.game_id
 end
