@@ -1,4 +1,6 @@
 class SendMessageJob < ApplicationJob
+  queue_as :default
+  
   def perform(chatRoom, user, message)
     MessagesChannel.broadcast_to chatRoom, message: build_message(user, message)
   end
