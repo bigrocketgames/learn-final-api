@@ -7,14 +7,4 @@ class Api::V1::ChatRoomsController < ApplicationController
     render 'chat_rooms/show.json.jbuilder', chatRoom: @chatRoom
   end
 
-  def create
-
-  end
-
-  private
-
-  def chat_room_params
-    params.require(:chat_room).permit(:roomName, :game_id)
-  end
-
 end
