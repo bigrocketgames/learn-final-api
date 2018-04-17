@@ -7,6 +7,11 @@ class Game < ApplicationRecord
   validates :game_time, :home_team_id, :away_team_id, presence: true
   validate :no_duplicate
 
+  def add_chat_room
+    roomName = self.away_team.name + ' @ ' + self.home_team.name + ' ' + self.game_time.strftime("%d/%m/%Y")
+    self.create_chat_room(roomName: roomName)
+  end
+
   private
 
   def no_duplicate
