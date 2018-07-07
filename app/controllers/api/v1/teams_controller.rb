@@ -25,7 +25,7 @@ before_action :authenticate_token!, only: [:create, :update, :destroy]
   end
 
   def show
-    render json: @team
+    render 'teams/show.json.jbuilder', team: @team
   end
 
   def update
