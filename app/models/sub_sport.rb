@@ -3,5 +3,5 @@ class SubSport < ApplicationRecord
   has_many :teams, dependent: :destroy
 
   validates :name, uniqueness: true
-  validates :name, :sport_id, :conference_split, presence: true
+  validates :name, :sport_id, presence: true
 end
