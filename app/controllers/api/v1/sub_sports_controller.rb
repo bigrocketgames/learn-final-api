@@ -64,7 +64,7 @@ class Api::V1::SubSportsController < ApplicationController
   end
 
   def subsport_params
-    params.require(:sub_sport).permit(:name, :sport_id, :conference_split)
+    params.require(:sub_sport).permit(:name, :sport_id, :conference_split, :alt_season_display)
   end
 
 end
