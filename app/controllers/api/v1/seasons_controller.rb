@@ -1,4 +1,4 @@
-class API::V1::SeasonsController < ApplicationController
+class Api::V1::SeasonsController < ApplicationController
 
   def index
     @seasons = Season.all
