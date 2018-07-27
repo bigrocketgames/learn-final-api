@@ -5,5 +5,6 @@ json.array! @teams do |team|
 
   json.sub_sport do
     json.name team.sub_sport.name
+    json.alt_season_display team.sub_sport.alt_season_display
   end
 end
