@@ -42,6 +42,9 @@ Rails.application.routes.draw do
         resources :messages, only: [:create, :destroy]
       end
 
+      # /api/v1/seasons
+      resources :seasons, only: [:index]
+
     end
   end
 
