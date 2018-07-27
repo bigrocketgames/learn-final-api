@@ -1,7 +1,8 @@
 class CreateSeasons < ActiveRecord::Migration[5.1]
   def change
     create_table :seasons do |t|
-      t.integer :year
+      t.string :year
+      t.string :alt_display
 
       t.timestamps
     end
