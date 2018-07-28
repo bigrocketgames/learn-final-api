@@ -1,11 +1,12 @@
 class Game < ApplicationRecord
   has_one :chat_room, dependent: :destroy
+  belongs_to :season
   belongs_to :home_team, class_name: "Team"
   belongs_to :away_team, class_name: "Team"
 
   after_create :add_location, :add_chat_room
   validates :game_time, :home_team_id, :away_team_id, presence: true
-  validate :no_duplicate
+  validate :no_duplicate, on: :create
 
   def add_chat_room
     roomName = self.away_team.name + ' @ ' + self.home_team.name + ' ' + self.game_time.strftime("%d/%m/%Y")
