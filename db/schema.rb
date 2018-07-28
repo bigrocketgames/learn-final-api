@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20180727022622) do
     t.integer "sub_sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes", default: 0
   end
 
   create_table "user_teams", id: :serial, force: :cascade do |t|
