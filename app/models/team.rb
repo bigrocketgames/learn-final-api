@@ -7,7 +7,7 @@ class Team < ApplicationRecord
 
   after_create :add_fullname
   validates :name, :mascot, :stadium_location, :conference, presence: true
-  validate :no_duplicate_team
+  validate :no_duplicate_team, on: :create
 
   def get_games
     team_games = Game.where('home_team_id = ? OR away_team_id = ?', self.id, self.id).order(:game_time)
