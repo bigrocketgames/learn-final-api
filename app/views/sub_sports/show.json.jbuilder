@@ -1,6 +1,7 @@
   json.(@sub_sport, :id, :name, :conference_split, :alt_season_display)
 
   json.conferences @sub_sport.conferences do |conference|
+    json.id conference.id
     json.name conference.name
 
     json.teams conference.teams do |team|
