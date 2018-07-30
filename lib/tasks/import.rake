@@ -21,7 +21,7 @@ namespace :import do
   desc "Import conferences from csv"
   task conferences: :environment do
     filename = File.join Rails.root, "conferences.csv"
-    CSV.foreach(filename, headers: true) do |row|
+    CSV.foreach(filename, {col_sep: ";", headers: true}) do |row|
       conference_hash = row.to_h
       conference_hash["sub_sport_id"] = conference_hash["sub_sport_id"].to_i
 
