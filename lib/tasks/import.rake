@@ -25,7 +25,7 @@ namespace :import do
       conference_hash = row.to_h
       conference_hash["sub_sport_id"] = conference_hash["sub_sport_id"].to_i
 
-      conference = Conference.find_by(name: conference_hash["name"], sub_sport_id: conference_hash["sub_sport_id"])
+      conference = Conference.find(conference_hash["id"])
       if (!conference)
         conference = Conference.create(conference_hash)
         p "When trying to create a new conference of #{row['name']}, we got the following errors - #{conference.errors.full_messages.join(",")}" if conference.errors.any?
