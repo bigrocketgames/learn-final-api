@@ -1,6 +1,17 @@
-name,mascot,stadium_location,conference_id
-Washington State University,Cougars,Pullman WA,2
-University of Washington,Huskies,Seattle WA,2
-Oregon State University,Beavers,Corvallis OR,2
-Arizona State University,Sun Devils,Tempe AZ,2
-University of Arizona,Wildcats,Tucson AZ,2
+id;name;mascot;stadium_location;conference_id
+1;Seattle;Seahawks;Seattle, WA;2
+2;Green Bay;Packers;Green Bay, WI;2
+3;Denver;Broncos;Denver, CO;1
+4;San Francisco;Santa Clara, CA;2
+5;Oakland;Raiders;Oakland, CA;1
+6;Washington State;Cougars;Pullman, WA;3
+8;USC;Trojans;Los Angeles, CA;3
+9;Seattle;Sounders;Seattle, WA;4
+10;UCLA;Bruins;Westwood, CA;3
+11;Oregon;Ducks;Eugene, OR;3
+12;California;Golden Bears;Berkley, CA;3
+13;Los Angeles;Rams;Los Angeles, CA;2
+14;Washington;Huskies;Seattle, WA;3
+15;Oregon State;Beavers;Corvallis, OR;3
+16;Arizona State;Sun Devils;Tempe, AZ;3
+17;Arizona;Wildcats;Tucson, AZ;3
