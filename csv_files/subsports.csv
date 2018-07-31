@@ -1,0 +1,5 @@
+id;name;sport_id;conference_split;alt_season_display
+1;NFL;1;true;true
+2;NCAA;1;true;true
+3;MLS;2;true;false
+7;Premier League;2;false;true
