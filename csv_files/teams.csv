@@ -1,43 +1,22 @@
-id;name;mascot;stadium_location;conference_id;fullname
-1;Seattle;Seahawks;Seattle, WA;2;Seattle Seahawks
-2;Green Bay;Packers;Green Bay, WI;2;Green Bay Packers
-3;Denver;Broncos;Denver, CO;1;Denver Broncos
-4;San Francisco;49ers;San Francisco, CA;2;San Francisco 49ers
-5;Oakland;Raiders;Oakland, CA;1;Oakland Raiders
-6;Washington State;Cougars;Pullman, WA;3;Washington State Cougars
-8;USC;Trojans;Los Angeles, CA;3;USC Trojans
-9;Seattle;Sounders;Seattle, WA;4;Seattle Sounders
-10;UCLA;Bruins;Westwood, CA;3;UCLA Bruins
-11;Oregon;Ducks;Eugene, OR;3;Oregon Ducks
-12;California;Golden Bears;Berkley, CA;3;California Golden Bears
-13;Los Angeles;Rams;Los Angeles, CA;2;Los Angeles Rams
-14;Washington;Huskies;Seattle, WA;3;Washington Huskies
-15;Oregon State;Beavers;Corvallis, OR;3;Oregon State Beavers
-16;Arizona State;Sun Devils;Tempe, AZ;3;Arizona State Sun Devils
-17;Arizona;Wildcats;Tucson, AZ;3;Arizona Wildcats
-18;Arizona;Cardinals;Phoenix, AZ;2;Arizona Cardinals
-19;Atlanta;Falcons;Atlanta, GA;2;Atlanta Falcons
-20;Baltimore;Ravens;Baltimore, MD;1;Baltimore Ravens
-21;Buffalo;Bills;Buffalo, NY;1;Buffalo Bills
-22;Carolina;Panthers;Charlotte, NC;2;Carolina Panthers
-23;Chicago;Bears;Chicago, IL;2;Chicago Bears
-24;Cincinnati;Bengals;Cincinnati, OH;1;Cincinnati Bengals
-25;Cleveland;Browns;Cleveland, OH;1;Cleveland Browns
-26;Dallas;Cowboys;Dallas, TX;2;Dallas Cowboys
-27;Detroit;Lions;Detroit, MI;2;Detroit Lions
-28;Houston;Texans;Houston, TX;1;Houston Texans
-29;Indianapolis;Colts;Indianapolis, IN;1;Indianapolis Colts
-30;Jacksonville;Jaguars;Jacksonville, FL;1;Jacksonville Jaguars
-31;Kansas City;Chiefs;Kansas City, MO;1;Kansas City Chiefs
-32;Los Angeles;Chargers;Los Angeles, CA;1;Los Angeles Chargers
-33;Miami;Dolphins;Miami, FL;1;Miami Dolphins
-34;Minnesota;Vikings;Minneapolis, MN;2;Minnesota Vikings
-35;New England;Patriots;Foxboro, MA;1;New England Patriots
-36;New Orleans;Saints;New Orleans, LA;2;New Orleans Saints
-37;New York;Giants;East Rutherford, NJ;2;New York Giants
-38;New York;Jets;East Rutherford, NJ;1;New York Jets
-39;Philadelphia;Eagles;Philadelphia, PA;2;Philadelphia Eagles
-40;Pittsburgh;Steelers;Pittsburgh, PA;1;Pittsburgh Steelers
-41;Tampa Bay;Buccaneers;Tampa Bay, FL;2;Tampa Bay Buccaneers
-42;Tennessee;Titans;Nashville, TN;1;Tennessee Titans
-43;Washington;Redskins;Landover, MD;2;Washington Redskins
+id;name;mascot;stadium_location;conference_id
+44;Colorado;Rapids;Denver, CO;4
+45;FC;Dallas;Dallas, TX;4
+46;Houston;Dynamo;Houston, TX;4
+47;LA;Galaxy;Los Angeles, CA;4
+48;Minnesota;United FC;Minneapolis, MN;4
+49;Portland;Timbers;Portland, OR;4
+50;Real;Salt Lake;Salt Lake City, UT;4
+51;San Jose;Earthquakes;San Jose, CA;4
+52;Sporting;Kansas City;Kansas City, MO;4
+53;Vancouver;Whitecaps FC;Vancouver, BC;4
+54;Atlanta;United FC;Atlanta, GA;5
+55;Chicago;Fire;Chicago, IL;5
+56;Columbus;Crew;Columbus, OH;5
+57;D.C.;United;Washington, D.C.;5
+58;Montreal;Impact;Montreal, Quebec, CA;5
+59;New England;Revolution;Foxboro, MA;5
+60;New York City;FC;The Bronx, NY;5
+61;New York;Red Bulls;Harrison, NJ;5
+62;Orlando City;SC;Orlando, FL;5
+63;Philadelphia;Union;Philadelphia, PA;5
+64;Toronto;FC;Toronto, Ontario, CA;5
