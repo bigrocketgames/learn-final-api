@@ -15,3 +15,29 @@ id;name;mascot;stadium_location;conference_id;fullname
 15;Oregon State;Beavers;Corvallis, OR;3;Oregon State Beavers
 16;Arizona State;Sun Devils;Tempe, AZ;3;Arizona State Sun Devils
 17;Arizona;Wildcats;Tucson, AZ;3;Arizona Wildcats
+18;Arizona;Cardinals;Phoenix, AZ;2;Arizona Cardinals
+19;Atlanta;Falcons;Atlanta, GA;2;Atlanta Falcons
+20;Baltimore;Ravens;Baltimore, MD;1;Baltimore Ravens
+21;Buffalo;Bills;Buffalo, NY;1;Buffalo Bills
+22;Carolina;Panthers;Charlotte, NC;2;Carolina Panthers
+23;Chicago;Bears;Chicago, IL;2;Chicago Bears
+24;Cincinnati;Bengals;Cincinnati, OH;1;Cincinnati Bengals
+25;Cleveland;Browns;Cleveland, OH;1;Cleveland Browns
+26;Dallas;Cowboys;Dallas, TX;2;Dallas Cowboys
+27;Detroit;Lions;Detroit, MI;2;Detroit Lions
+28;Houston;Texans;Houston, TX;1;Houston Texans
+29;Indianapolis;Colts;Indianapolis, IN;1;Indianapolis Colts
+30;Jacksonville;Jaguars;Jacksonville, FL;1;Jacksonville Jaguars
+31;Kansas City;Chiefs;Kansas City, MO;1;Kansas City Chiefs
+32;Los Angeles;Chargers;Los Angeles, CA;1;Los Angeles Chargers
+33;Miami;Dolphins;Miami, FL;1;Miami Dolphins
+34;Minnesota;Vikings;Minneapolis, MN;2;Minnesota Vikings
+35;New England;Patriots;Foxboro, MA;1;New England Patriots
+36;New Orleans;Saints;New Orleans, LA;2;New Orleans Saints
+37;New York;Giants;East Rutherford, NJ;2;New York Giants
+38;New York;Jets;East Rutherford, NJ;1;New York Jets
+39;Philadelphia;Eagles;Philadelphia, PA:2;Philadelphia Eagles
+40;Pittsburgh;Steelers;Pittsburgh, PA;1;Pittsburgh Steelers
+41;Tampa Bay;Buccaneers;Tampa Bay, FL;2;Tampa Bay Buccaneers
+42;Tennessee;Titans;Nashville, TN;1;Tennessee Titans
+43;Washington;Redskins;Landover, MD;2;Washington Redskins
