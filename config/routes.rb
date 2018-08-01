@@ -45,6 +45,9 @@ Rails.application.routes.draw do
       # /api/v1/seasons
       resources :seasons, only: [:index]
 
+      # /api/v1/conferences
+      resources :conferences, only: [:index]
+
     end
   end
 
