@@ -11,7 +11,7 @@ class Game < ApplicationRecord
   def add_chat_room
     roomName = self.away_team.name + ' @ ' + self.home_team.name + ' ' + self.game_time.strftime("%d/%m/%Y")
     # self.create_chat_room(roomName: roomName)
-    self.update_chat_room(roomName: roomName)
+    self.chat_room.update(roomName: roomName)
   end
 
   private
