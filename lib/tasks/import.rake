@@ -82,6 +82,7 @@ namespace :import do
         p "When trying to update game id# #{row['name']}, we got the following errors - #{game.errors.full_messages.join(",")}" if game.errors.any?
       end
     end
+  end
 
 
 end
