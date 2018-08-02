@@ -10,7 +10,8 @@ class Game < ApplicationRecord
 
   def add_chat_room
     roomName = self.away_team.name + ' @ ' + self.home_team.name + ' ' + self.game_time.strftime("%d/%m/%Y")
-    self.create_chat_room(roomName: roomName)
+    # self.create_chat_room(roomName: roomName)
+    self.update_chat_room(roomName: roomName)
   end
 
   private
@@ -30,10 +31,5 @@ class Game < ApplicationRecord
   def add_location
     self.update(location: self.home_team.stadium_location) if self.location.nil?
   end
-
-  # def add_chat_room
-  #   roomName = self.away_team.name + ' @ ' + self.home_team.name + ' ' + self.game_time.strftime("%d/%m/%Y")
-  #   self.create_chat_room(roomName: roomName)
-  # end
 
 end
