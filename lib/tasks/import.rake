@@ -67,5 +67,21 @@ namespace :import do
     end
   end
 
+  desc "Import games from csv"
+  task games: :environment do
+    filename = File.join Rails.root, "csv_files/games.csv"
+    CSV.foreach(filename, {col_sep: ";", headers: true}) do |row|
+      game_hash = row.to_h
+      game = Game.find_by(id: game_hash["id"])
+
+      if(!game)
+        game = Game.create(game_hash)
+        p "When trying to create a new game of #{row['name']}, we got the following errors - #{game.errors.full_messages.join(",")}" if game.errors.any?
+      else
+        game.update(game_hash)
+        p "When trying to update game id# #{row['name']}, we got the following errors - #{game.errors.full_messages.join(",")}" if game.errors.any?
+      end
+    end
+
 
 end
