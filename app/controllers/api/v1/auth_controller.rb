@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
   before_action :authenticate_token!, only: [:refresh]
 
   def login
-    @user = User.find_by(email: params[:user][:email].to_s.downcase)
+    @user = User.find_by(email: params[:user][:email].to_s.downcase) || User.find_by(username: params[:user][:email])
 
     if !@user
       render json: {

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :favorite_teams, through: :user_teams, source: :team
 
   before_save :downcase_email
-  validates :email, presence: true, uniqueness: true
+  validates :email, :username, presence: true, uniqueness: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   private
