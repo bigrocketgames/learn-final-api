@@ -3,7 +3,7 @@ before_action :get_team, only: [:show, :update, :destroy]
 before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
-    @teams = Team.all
+    @teams = Team.all.order(:id)
     render 'teams/index.json.jbuilder', team: @teams
   end
 

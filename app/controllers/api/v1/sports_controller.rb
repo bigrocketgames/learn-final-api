@@ -3,7 +3,7 @@ class Api::V1::SportsController < ApplicationController
   before_action :authenticate_token!, only: [:create, :update, :destroy]
 
   def index
-    @sports = Sport.all
+    @sports = Sport.all.order(:id)
     render 'sports/index.json.jbuilder', sport: @sports
   end
 
