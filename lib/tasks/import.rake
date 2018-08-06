@@ -76,7 +76,8 @@ namespace :import do
       game = Game.find_by(id: game_hash["id"])
 
       if(!game)
-        game = Game.create(game_hash)
+        game = Game.new(game_hash)
+        game.save
         p "When trying to create a new game of #{row['name']}, we got the following errors - #{game.errors.full_messages.join(",")}" if game.errors.any?
       else
         game.update(game_hash)
