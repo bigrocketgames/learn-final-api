@@ -8,7 +8,8 @@ namespace :import do
       team_hash["conference_id"] = team_hash["conference_id"].to_i
       team = Team.find_by(id: team_hash["id"])
       if (!team) 
-        team = Team.create(team_hash)
+        team = Team.new(team_hash)
+        team.save
         p "When trying to create a new team of #{row['name']}, we got the following errors - #{team.errors.full_messages.join(",")}" if team.errors.any?
       else
         team.update(team_hash)
