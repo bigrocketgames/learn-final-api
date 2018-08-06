@@ -77,7 +77,6 @@ namespace :import do
       game = Game.find_by(id: game_hash[:id])
 
       game_hash.delete :id
-      p game_hash
 
       if(!game)
         game = Game.new(game_hash)
