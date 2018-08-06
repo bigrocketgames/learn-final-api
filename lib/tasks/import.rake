@@ -73,10 +73,13 @@ namespace :import do
     filename = File.join Rails.root, "csv_files/games.csv"
     CSV.foreach(filename, {col_sep: ";", headers: true}) do |row|
       game_hash = row.to_h
-      game = Game.find_by(id: game_hash["id"])
+      game_hash.symbolize_keys!
+      game = Game.find_by(id: game_hash[:id])
+
+      game_hash.delete :id
+      p game_hash
 
       if(!game)
-        game_hash.delete :id
         game = Game.new(game_hash)
         game.save
         p "When trying to create a new game of #{row['name']}, we got the following errors - #{game.errors.full_messages.join(",")}" if game.errors.any?
